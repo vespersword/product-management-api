@@ -4,6 +4,19 @@ const jwt = require('jsonwebtoken');
 
 var port = process.env.PORT || 3000;
 app.use(express.json());
+const rateLimit = require("express-rate-limit");
+ 
+// Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
+// see https://expressjs.com/en/guide/behind-proxies.html
+app.set('trust proxy', 1);
+ 
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 15 minutes
+  max: 10 // limit each IP to 100 requests per windowMs
+});
+ 
+//  apply to all requests
+app.use(limiter);
 
 const Users = [
     {
