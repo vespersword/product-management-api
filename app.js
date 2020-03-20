@@ -116,7 +116,7 @@ app.post("/api/users/login", (req, res)=>{
     }
 })
 
-/*app.get("/*", function(req, res){
+app.get("/*", function(req, res){
     res.status(501).send("Feature currently unimplemented.");
 })
 
@@ -135,5 +135,5 @@ app.put("/*", function(req, res){
 app.patch("/*", function(req, res){
     res.status(501).send("Feature currently unimplemented.");
 })
-*/
+
 app.listen(port);
